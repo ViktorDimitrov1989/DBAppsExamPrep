@@ -91,7 +91,6 @@ public class PhotographerServiceImpl implements PhotographerService {
         }).collect(Collectors.toList());
 
         for (LandscapePhotographerView landscapePhotographer : landscapePhotographers) {
-            landscapePhotographer.setCamProd(landscapePhotographer.getPrimaryCamera().getMake());
             landscapePhotographer.setLensesCount(landscapePhotographer.getLenses().size());
         }
 

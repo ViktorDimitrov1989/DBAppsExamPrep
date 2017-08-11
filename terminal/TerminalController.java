@@ -64,7 +64,13 @@ public class TerminalController implements CommandLineRunner {
         //importWorkshops();
         //exportOrderedPhotographers();
         //exportLandscapePhotographers();
-        exportPhotographersWithSameCameraMake();
+        //exportPhotographersWithSameCameraMake();
+        exportWorkshopsByLocation();
+
+
+    }
+
+    private void exportWorkshopsByLocation() {
 
     }
 
@@ -75,11 +81,6 @@ public class TerminalController implements CommandLineRunner {
             photographer.setFullName(photographer.getFirstName() + " " + photographer.getLastName());
             photographer.setPrimeCam(photographer.getPrimaryCamera().getMake() + " " + photographer.getPrimaryCamera().getModel());
         }
-
-        /*photographersViews = photographersViews
-                .stream()
-                .filter(x -> x.getLenses().getLenses().size() > 0)
-                .collect(Collectors.toList());*/
 
         for (SameCamPhotographerXmlView photographer : photographersViews) {
             if(photographer.getLenses().getLenses().size() == 0){

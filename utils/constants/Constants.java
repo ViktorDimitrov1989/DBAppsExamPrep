@@ -20,6 +20,7 @@ public class Constants {
     public static final String INPUT_XML_WORKSHOPS_FILE = "workshops.xml";
 
     public static final String OUTPUT_XML_SAME_CAMERAS_PHOTOGRAPHERS_FILE = "same-camera-photographers.xml";
+    public static final String OUTPUT_XML_WORKSHOPS_BY_LOCATION_FILE = "workshops-by-location.xml";
 
 
 }

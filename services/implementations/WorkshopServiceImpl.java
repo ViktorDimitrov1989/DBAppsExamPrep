@@ -22,7 +22,6 @@ import java.util.List;
 public class WorkshopServiceImpl implements WorkshopService {
     private WorkshopRepository workshopRepository;
     private PhotographerRepository photographerRepository;
-    private AddWorkshopXmlDto participants;
 
     @Autowired
     public WorkshopServiceImpl(WorkshopRepository workshopRepository,
@@ -60,6 +59,7 @@ public class WorkshopServiceImpl implements WorkshopService {
             }
         }
     }
+
 
     private List<Photographer> addParticipants(AddWorkshopXmlDto workshop) {
         List<Photographer> participantsToAdd = new ArrayList<>();

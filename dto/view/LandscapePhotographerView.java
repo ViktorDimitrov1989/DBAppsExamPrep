@@ -17,9 +17,7 @@ public class LandscapePhotographerView {
     private String lastName;
     @Expose
     @SerializedName("CameraMake")
-    private String camProd;
-
-    private LandscapeCameraView primaryCamera;
+    private String primaryCameraMake;
     @Expose
     @SerializedName("LensesCount")
     private int lensesCount;
@@ -45,20 +43,12 @@ public class LandscapePhotographerView {
         this.lastName = lastName;
     }
 
-    public String getCamProd() {
-        return camProd;
+    public String getPrimaryCameraMake() {
+        return primaryCameraMake;
     }
 
-    public void setCamProd(String camProd) {
-        this.camProd = camProd;
-    }
-
-    public LandscapeCameraView getPrimaryCamera() {
-        return primaryCamera;
-    }
-
-    public void setPrimaryCamera(LandscapeCameraView primaryCamera) {
-        this.primaryCamera = primaryCamera;
+    public void setPrimaryCameraMake(String primaryCameraMake) {
+        this.primaryCameraMake = primaryCameraMake;
     }
 
     public int getLensesCount() {

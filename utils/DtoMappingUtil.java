@@ -1,6 +1,9 @@
 package app.utils;
 
+import app.dto.view.LandscapePhotographerView;
+import app.models.Photographer;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,4 +29,22 @@ public class DtoMappingUtil {
 
         return resultList;
     }
+
+    //custom mapping
+    //use this method when convert to List<LandscapePhotographers> with custom mapping
+    public static List<LandscapePhotographerView> convertToLandscapePhotographersDto(Iterable<Photographer> photographers){
+        PropertyMap<Photographer, LandscapePhotographerView> propMap = new PropertyMap<Photographer, LandscapePhotographerView>() {
+            @Override
+            protected void configure() {
+                map().setLensesCount(source.getLenses().size());
+            }
+        };
+
+        mapper.addMappings(propMap);
+
+        List<LandscapePhotographerView> result = convert(photographers, LandscapePhotographerView.class);
+        return result;
+    }
+
+
 }

@@ -90,7 +90,7 @@ public class WorkShop {
         this.trainer = trainer;
     }
 
-    @ManyToMany//(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "workshops_photographers", joinColumns =
     @JoinColumn(name = "workshop_id", referencedColumnName = "workshop_id"),
             inverseJoinColumns = @JoinColumn(name = "photographer_id", referencedColumnName = "photographer_id"))
