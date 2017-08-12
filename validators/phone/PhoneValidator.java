@@ -1,8 +1,11 @@
 package app.validators.phone;
 
+import org.springframework.stereotype.Component;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+@Component
 public class PhoneValidator implements ConstraintValidator<Phone, String> {
 
     @Override
