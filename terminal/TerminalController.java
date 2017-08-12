@@ -1,16 +1,15 @@
 package app.terminal;
 
 import app.dto.add.*;
-import app.dto.view.LandscapePhotographerView;
-import app.dto.view.LensXmlView;
-import app.dto.view.OrderedPhotographerView;
-import app.dto.view.SameCamPhotographerXmlView;
+import app.dto.view.*;
 import app.dto.wrappers.AddAccessoryWrapper;
 import app.dto.wrappers.AddWorkshopsWrapper;
+import app.dto.wrappers.LocationsXmlDtoWrapper;
 import app.dto.wrappers.SameCameraPhotographersWrapper;
 import app.models.DSLRCamera;
 import app.models.MirorlessCamera;
 import app.models.Photographer;
+import app.models.WorkShop;
 import app.models.abstractions.Camera;
 import app.services.*;
 import app.utils.DtoMappingUtil;
@@ -23,6 +22,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
@@ -71,6 +71,24 @@ public class TerminalController implements CommandLineRunner {
     }
 
     private void exportWorkshopsByLocation() {
+        Map<String, List<WorkShop>> workshopsByLocation = this.workshopService.findWorkshopsByLocation();
+
+        LocationsXmlDtoWrapper locationsXmlDtoWrapper = new LocationsXmlDtoWrapper();
+
+        for (String locationName : workshopsByLocation.keySet()) {
+            List<WorkShop> workshops = workshopsByLocation.get(locationName);
+            List<WorkshopXmlDto> workshopXmlDtos = DtoMappingUtil.convert(workshops, WorkshopXmlDto.class);
+            LocationXmlDto locationXmlDto = new LocationXmlDto();
+            locationXmlDto.setWorkshopXmlDtoList(workshopXmlDtos);
+            locationXmlDto.setName(locationName);
+            locationsXmlDtoWrapper.addLocationXmlDto(locationXmlDto);
+
+        }
+
+        String debug = "";
+
+        this.xmlSerializer.serialize(locationsXmlDtoWrapper,
+                Constants.OUTPUT_XML_FILES_PATH + Constants.OUTPUT_XML_WORKSHOPS_BY_LOCATION_FILE);
 
     }
 

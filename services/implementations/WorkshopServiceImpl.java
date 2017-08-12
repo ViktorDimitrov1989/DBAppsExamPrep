@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -58,6 +60,21 @@ public class WorkshopServiceImpl implements WorkshopService {
                 System.out.println("Error. Invalid data provided");
             }
         }
+    }
+
+    @Override
+    public Map<String, List<WorkShop>> findWorkshopsByLocation() {
+        List<String> locations = this.workshopRepository.findAllLocations();
+        Map<String, List<WorkShop>> locationsMap = new HashMap<>();
+
+        for (String location : locations) {
+            List<WorkShop> workshopsByLocation = this.workshopRepository.findWorkshopsByLocation(location);
+            if(workshopsByLocation.size() > 0){
+                locationsMap.put(location, workshopsByLocation);
+            }
+        }
+
+        return locationsMap;
     }
 
 

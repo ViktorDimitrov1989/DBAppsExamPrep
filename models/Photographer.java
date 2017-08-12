@@ -106,7 +106,7 @@ public class Photographer {
         this.accessories = accessories;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "participant")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "participant")
     public List<WorkShop> getWorkShops() {
         return workShops;
     }
@@ -115,7 +115,7 @@ public class Photographer {
         this.workShops = workShops;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "trainer")
+    @OneToMany(mappedBy = "trainer")
     public List<WorkShop> getTrainedWorkshops() {
         return trainedWorkshops;
     }

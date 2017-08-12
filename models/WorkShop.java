@@ -80,7 +80,7 @@ public class WorkShop {
     }
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "photographer_trainer_id")
     public Photographer getTrainer() {
         return trainer;
