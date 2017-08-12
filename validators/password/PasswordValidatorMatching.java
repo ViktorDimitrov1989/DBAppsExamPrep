@@ -1,5 +1,7 @@
 /*
-package app.validators;
+package app.validators.password;
+
+import org.springframework.stereotype.Component;package app.validators;
 
 import app.dto.bindingModels.user.RegisterUser;
 import org.springframework.stereotype.Component;

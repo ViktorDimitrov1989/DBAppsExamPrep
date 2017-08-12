@@ -1,7 +1,6 @@
-package app.validators;
+package app.validators.password;
 
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

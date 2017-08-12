@@ -1,4 +1,4 @@
-package app.validators;
+package app.validators.password;
 
 import org.springframework.stereotype.Component;
 

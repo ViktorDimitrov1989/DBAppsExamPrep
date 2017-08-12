@@ -1,6 +1,7 @@
 package app.models;
 
 import app.models.abstractions.Camera;
+import app.validators.phone.Phone;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -56,7 +57,7 @@ public class Photographer {
         this.lastName = lastName;
     }
 
-    @Pattern(regexp = "\\+[0-9]{1,3}\\/[0-9]{8,10}", message = "Invalid phone number")
+    @Phone
     @Column(name = "phone")
     public String getPhone() {
         return phone;

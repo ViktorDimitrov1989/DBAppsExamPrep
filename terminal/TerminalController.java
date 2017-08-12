@@ -65,7 +65,7 @@ public class TerminalController implements CommandLineRunner {
         //exportOrderedPhotographers();
         //exportLandscapePhotographers();
         //exportPhotographersWithSameCameraMake();
-        exportWorkshopsByLocation();
+        //exportWorkshopsByLocation();
 
 
     }
@@ -84,8 +84,6 @@ public class TerminalController implements CommandLineRunner {
             locationsXmlDtoWrapper.addLocationXmlDto(locationXmlDto);
 
         }
-
-        String debug = "";
 
         this.xmlSerializer.serialize(locationsXmlDtoWrapper,
                 Constants.OUTPUT_XML_FILES_PATH + Constants.OUTPUT_XML_WORKSHOPS_BY_LOCATION_FILE);
