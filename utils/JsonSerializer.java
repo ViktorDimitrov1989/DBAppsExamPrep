@@ -22,7 +22,8 @@ public class JsonSerializer implements Serializer {
                 .excludeFieldsWithoutExposeAnnotation()
                 .setPrettyPrinting()
                 .serializeNulls()//added
-                .registerTypeAdapter(Date.class, new DateDeserializer())//added
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")//date format
+                //.registerTypeAdapter(Date.class, new DateDeserializer())//added
                 .create();
     }
 
